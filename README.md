@@ -3,6 +3,7 @@
 Installation du back :
   - npm i
   - npm start 
+  - Connexion à MongoDB dans db.js
 # add .env :
   - PORT=
   - DB_USER=""
