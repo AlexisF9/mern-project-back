@@ -8,8 +8,8 @@ const pipeline = promisify(require('stream').pipeline);
 
 module.exports.readPost = async (req, res) => {
     const posts = await PostModel.find();
-    res.status(200).json(posts);
-}
+    res.status(200).json(posts).sort({createdAt: -1}); // du plus récent au plus ancien
+};
 
 module.exports.createPost = async (req, res) => {
 
@@ -135,5 +135,84 @@ module.exports.unlikePost = async (req, res) => {
         res.status(201).json(isUnLike)
     } catch (err) {
         return res.status(500).json({ message: err });
+    }
+};
+
+
+///////////////// Comment
+
+module.exports.commentPost = async (req, res) => {
+    if (!ObjectID.isValid(req.params.id)) {
+        return res.status(400).send("ID unknown : " + req.params.id);
+    }
+
+    let isComment = null;
+
+    try {
+        isComment = await PostModel.findByIdAndUpdate(
+            req.params.id,
+            {$push: {comments: {
+                commenterId: req.body.commenterId,
+                commenterPseudo: req.body.commenterPseudo,
+                text: req.body.text,
+                timestamp: new Date().getTime()
+            }}},
+            {new: true}
+        );
+        res.status(201).json(isComment)
+    } catch (err) {
+        return res.status(400).json({ message: err });
+    }
+};
+
+module.exports.editCommentPost = async (req, res) => {
+    if (!ObjectID.isValid(req.params.id)) {
+        return res.status(400).send("ID unknown : " + req.params.id);
+    }
+    
+    try {
+        return PostModel.findById(req.params.id, (err, docs) => {
+            const theComment = docs.comments.find((comment) =>
+                comment._id.equals(req.body.commentId) // cherche le bon comment avec les id
+            ); 
+
+            if (!theComment) {
+                return res.status(404).send("Comment not found");
+            } else {
+                theComment.text = req.body.text; // enregistrer le nouveau text
+            } 
+
+            return docs.save((err) => {
+                if (!err) {
+                    return res.status(200).send(docs); // l'envoyer à la db 
+                } else {
+                    return res.status(500).send(err); 
+                }
+                
+            });
+        });
+    } catch (err) {
+        return res.status(400).send(err);
+    }
+};
+
+module.exports.deleteCommentPost = async (req, res) => {
+    if (!ObjectID.isValid(req.params.id)) {
+        return res.status(400).send("ID unknown : " + req.params.id);
+    }
+
+    let isDeleted = null;
+
+    try {
+        isDeleted = await PostModel.findByIdAndUpdate(
+            req.params.id,
+            {$pull: {comments: {
+                _id: req.body.commentId
+            }}},
+            {new: true}
+        );
+        return res.send(isDeleted)
+    } catch (err) {
+        return res.status(500).json({message : err});
     }
 };

@@ -32,4 +32,23 @@ router.patch("/unlike-post/:id", postController.unlikePost);
 // "id": "id de la personne qui unlike"
 
 
+// Comment
+router.patch('/comment-post/:id', postController.commentPost);
+// PATCH
+// http://localhost:5000/api/post/comment-post/:id
+// "commenterId": "...",
+// "commenterPseudo": "Alexis",
+// "text": "..."
+
+router.patch('/edit-comment-post/:id', postController.editCommentPost);
+// PATCH
+// http://localhost:5000/api/post/edit-comment-post/:id
+// "commentId": "...",
+// "text": "..."
+
+router.patch('/delete-comment-post/:id', postController.deleteCommentPost);
+// PATCH
+// http://localhost:5000/api/post/delete-comment-post/:id
+// "commentId": "..."
+
 module.exports = router;
