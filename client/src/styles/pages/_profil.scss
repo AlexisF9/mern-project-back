@@ -1,0 +1,20 @@
+.profil-page {
+  margin: 80px auto 0;
+  max-width: 1200px;
+}
+
+.logForm {
+  li {
+    cursor: pointer;
+  }
+
+  .active-btn {
+    color: $color-1;
+  }
+
+  .form {
+    margin-top: 1rem;
+    background: $color-4;
+    padding: 1rem;
+  }
+}

@@ -13,7 +13,11 @@ const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
 const cors = require('cors'); // lib autorisation d'utiliser l'api
 
+
+
 ///////////////////////////////////////
+
+
 
 const app = express();
 
