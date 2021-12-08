@@ -1,9 +1,10 @@
 # MERN project : Réseaux social
 
-Installation du back :
+### Installation du back :
   - npm i
   - npm start 
-# add .env :
+  - Connexion à MongoDB dans db.js
+### add .env :
   - PORT=
   - DB_USER=""
   - DB_PASS=""
