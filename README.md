@@ -1,10 +1,14 @@
 # MERN project : Réseaux social
 
 ### Installation du projet :
+#### Back
   - npm i
   - Connexion à MongoDB dans db.js
   - Créer fichier .env à la racine dans config (voir instruction ci-dessous)
   - npm start à la racine (back)
+#### Front
+  - cd client
+  - npm i
   - Créer fichier .env dans client (voir instruction ci-dessous)
   - npm start dans client (front)
   - localhost:3000
