@@ -1,20 +1,58 @@
 .profil-page {
-  margin: 80px auto 0;
-  max-width: 1200px;
+  margin-left: 3rem;
 }
 
 .logForm {
+
+  ul {
+    display: flex;
+    padding-left: 2rem;
+  }
   li {
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .active-btn {
+    border-radius: 9px;
+    color: black;
+    background: $color-4;
+  }
+  .form {
+    padding: 2rem;
+  }
+}
+
+#signInForm, #signUpForm {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    background: rgb(238, 238, 238);
+    padding: 0.8rem;
+    border-radius: 9px;
+  }
+
+  input:last-child {
+    background: $color-1;
+    width: max-content;
+    color: white;
     cursor: pointer;
   }
 
-  .active-btn {
-    color: $color-1;
+  .containerCheckbox {
+    display: flex;
+    align-items: center;
+
+    input {
+      margin-right: 0.5rem;
+    }
   }
 
-  .form {
-    margin-top: 1rem;
-    background: $color-4;
-    padding: 1rem;
+  .error {
+    margin: 0.5rem 0 1rem 0;
   }
+}
+
+.profil-container {
+  margin-left: 2rem;
 }

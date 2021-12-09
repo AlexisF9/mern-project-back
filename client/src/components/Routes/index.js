@@ -8,10 +8,15 @@ import {
 import Home from '../../pages/Home';
 import Profil from '../../pages/Profil';
 import Trending from '../../pages/Trending';
+import LeftNav from "../LeftNav";
+import Navbar from "../Navbar";
 
-const index = () => {
+const Routing = () => {
+    
     return (
         <Router>
+            <Navbar/>
+            <LeftNav/>
             <Routes>
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/profil" exact element={<Profil/>}/>
@@ -22,4 +27,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Routing;

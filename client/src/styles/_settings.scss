@@ -47,14 +47,18 @@ $tabletBreakpoint: 1024px;
   src: url(./assets/fonts/JosefinSans-Bold.ttf);
 }
 
-$font-1: "font-1", sans-serif;
-$font-2: "font-2", serif;
-$font-3: "font-3", serif;
+//$font-1: "font-1", sans-serif;
+//$font-2: "font-2", serif;
+//$font-3: "font-3", serif;
 
-$color-1: #ff7b77;
-$color-2: #ffd0c4;
+$font-1: "arial", sans-serif;
+$font-2: "arial", serif;
+$font-3: "arial", serif;
+
+$color-1: #0e2e3d;
+$color-2: aqua;
 $color-3: rgb(0, 22, 44);
-$color-4: #fdeeee;
+$color-4: #93d1cc;
 $black: rgb(40, 40, 40);
 $white: rgb(253, 253, 253);
 $shadow: rgb(219, 218, 218);
@@ -68,9 +72,9 @@ $shadow: rgb(219, 218, 218);
   border: none;
   text-decoration: none;
 
-  &::selection {
+  /*&::selection {
     background: $color-1;
-  }
+  }*/
 }
 a,
 a:visited {
