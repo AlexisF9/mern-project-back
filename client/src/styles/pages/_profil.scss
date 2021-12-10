@@ -3,22 +3,36 @@
 }
 
 .logForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ul {
+    width: 60%;
     display: flex;
-    padding-left: 2rem;
+    padding: 0;
+    @include mobile {
+      width: 90%;
+    }
+
+    li {
+      cursor: pointer;
+      padding: 0.5rem;
+    }
   }
-  li {
-    cursor: pointer;
-    padding: 0.5rem;
-  }
+
   .active-btn {
     border-radius: 9px;
     color: black;
     background: $color-4;
   }
   .form {
-    padding: 2rem;
+    width: 60%;
+    margin-top: 2rem;
+
+    @include mobile {
+      width: 90%;
+    }
   }
 }
 
@@ -27,16 +41,9 @@
   flex-direction: column;
 
   input {
-    background: rgb(238, 238, 238);
+    background: $color-2-light;
     padding: 0.8rem;
     border-radius: 9px;
-  }
-
-  input:last-child {
-    background: $color-1;
-    width: max-content;
-    color: white;
-    cursor: pointer;
   }
 
   .containerCheckbox {
@@ -55,4 +62,123 @@
 
 .profil-container {
   margin-left: 2rem;
+  display: flex;
+
+  @include mobile {
+    display: block;
+  }
+
+  img {
+    margin: 1rem 0 1rem 0;
+    border-radius: 50%;
+    height: 250px;
+    box-shadow: 0px 0px 15px $color-2;
+  }
+
+  .profil-right, .profil-left {
+    width: 50%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .form-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      padding: 0.8rem;
+      border-radius: 9px;
+    }
+  }
+
+  .profil-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profil-right {
+    display: flex;
+    flex-direction: column;
+
+    p, textarea {
+      background: $color-2-light;
+      border-radius: 9px;
+      width: 80%;
+      min-height: 50px;
+      margin: 0;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+
+    .followingBtn {
+      margin-left: 1rem;
+    }
+
+    .followersBtn, .followingBtn {
+      background: $color-4!important;
+      color: black!important;
+      width: 150px;
+      margin-bottom: 2rem;
+    }
+  }
+  
+}
+
+.followersPopup, .followingPopup {
+  position: absolute;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  border-radius: 9px;
+
+  h3 {
+    text-align: center;
+  }
+
+  span {
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+  }
+
+  ul {
+    padding: 1rem 5rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+    }
+    
+  }
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.459);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

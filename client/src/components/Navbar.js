@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const youid = useContext(youIdContext);
     const userData = useSelector((state) => state.userReducer); // reccup les données du store grace au reducer
-
+    console.log("test", youid);
     return(
         <nav>
             <div className="nav-container"> 
@@ -25,7 +25,7 @@ const Navbar = () => {
                     <li>
                         <NavLink exact to="/profil">
                             <div className="welcome">
-                                <h5>Bienvenue {userData.pseudo}</h5>
+                                <h5>{userData.pseudo}<img src={userData.picture}/></h5>
                             </div>
                         </NavLink>
                     </li>

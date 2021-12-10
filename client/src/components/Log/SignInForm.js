@@ -1,5 +1,6 @@
 import React, { createRef, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const SignInForm = () => {
     const [email, setEmail] = useState('');
@@ -7,6 +8,8 @@ const SignInForm = () => {
 
     const emailError = createRef();
     const passwordError = createRef();
+
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault(); // enlève le rechargement de page
@@ -25,7 +28,7 @@ const SignInForm = () => {
                 emailError.current.innerHTML = res.data.errors.email; // erreur du back
                 passwordError.current.innerHTML = res.data.errors.password;
             } else {
-                window.location = "/"; // redirection à l'accueil
+                navigate('/');
             }
         }) // renvoi une erreur
         .catch((err) => {

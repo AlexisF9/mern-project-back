@@ -4,18 +4,18 @@ nav {
   background: $color-4;
   margin-bottom: 2rem;
 
-  @media screen and(max-width: 1251px) {
-    padding: 0 20px;
-  }
-
   .nav-container {
+    padding: 0 8rem 0 8rem;
     display: flex;
     align-items: center;
     height: 100%;
-    max-width: 1190px;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+
+    @include mobile {
+      padding: 0 2rem 0 2rem;
+    }
     
     .logo {
       display: flex;
@@ -33,6 +33,17 @@ nav {
 
     .welcome {
       margin-right: 1rem;
+      
+      h5 {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-left: 0.5rem;
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
     }
     
     ul {
