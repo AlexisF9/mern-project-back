@@ -27,7 +27,7 @@ const Routing = () => {
           console.log("test 1");
         const res = await axios({
           method: "get",
-          url: `${process.env.REACT_APP_API_URL}jwtid?v=${Date.now()}`, //forcer la relance de la page
+          url: `${process.env.REACT_APP_API_URL}jwtid?v=${Date.now()}`, //?v= ==> forcer la relance de la page
           withCredentials: true,
         })
         console.log("test 2");
