@@ -73,6 +73,10 @@
     border-radius: 50%;
     height: 250px;
     box-shadow: 0px 0px 15px $color-2;
+
+    @include mobile {
+      height: 150px;
+    }
   }
 
   .profil-right, .profil-left {
