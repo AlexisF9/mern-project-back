@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const youid = useContext(youIdContext);
     const userData = useSelector((state) => state.userReducer); // reccup les données du store grace au reducer
-    console.log("test", youid);
+
     return(
         <nav>
             <div className="nav-container"> 
